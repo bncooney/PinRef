@@ -9,7 +9,7 @@
   <Identity
     Name="61389NealCooney.PinRef"
     Publisher="CN=865FA34D-154D-4300-9775-A8F3919C1A55"
-    Version="1.0.10.0" />
+    Version="1.0.1.0" />
 
   <Properties>
     <DisplayName>PinRef</DisplayName>

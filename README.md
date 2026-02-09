@@ -1,13 +1,13 @@
 # PinRef - Visual Reference Image Viewer
 
-Keep your reference images always visible while you work. PinRef is a lightweight desktop tool that lets you drag and drop multiple images onto a customizable canvas. Perfect for artists, designers, and developers who need to reference visual materials while working in other applications.
+Keep your reference images visible while you work. PinRef is a feature-light desktop tool that lets you drag and drop multiple images onto a customizable canvas. Ideal for artists, designers, and developers who need to reference visual materials while working in other applications.
 
 ## Features:
 
 - Pin window on top of all other apps for constant visibility
 - Drag and drop multiple images onto a zoomable canvas
-- Move, resize, and arrange images freely
-- Auto-reload images when files change (great for iterative work)
+- Move, resize, and arrange images
+- Auto-reload images when files change (file-watcher)
 - Zoom and pan with mouse wheel and drag
 - Clean, minimal interface that stays out of your way
 
