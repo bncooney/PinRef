@@ -23,8 +23,6 @@ public static class PinRefSession
 
     public static void Setup(string? appArguments = null)
     {
-        StartWinAppDriverIfNeeded();
-
         // A root Desktop session lets us locate windows by title after HWND changes.
         var desktopOptions = new AppiumOptions();
         desktopOptions.AddAdditionalCapability("app", "Root");
@@ -82,16 +80,9 @@ public static class PinRefSession
         {
             try { proc.Kill(); proc.Dispose(); } catch { }
         }
-
-        if (_winAppDriverProcess is { HasExited: false })
-        {
-            _winAppDriverProcess.Kill();
-            _winAppDriverProcess.Dispose();
-            _winAppDriverProcess = null;
-        }
     }
 
-    private static void StartWinAppDriverIfNeeded()
+    public static void StartWinAppDriver()
     {
         if (Process.GetProcessesByName("WinAppDriver").Length > 0)
             return;
@@ -122,6 +113,16 @@ public static class PinRefSession
         }
 
         throw new TimeoutException("WinAppDriver did not start within 3 seconds.");
+    }
+
+    public static void StopWinAppDriver()
+    {
+        if (_winAppDriverProcess is { HasExited: false })
+        {
+            _winAppDriverProcess.Kill();
+            _winAppDriverProcess.Dispose();
+            _winAppDriverProcess = null;
+        }
     }
 
     private static string FindAppExecutable()
