@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Resource Include="pinref_logo.png" />
+    <Resource Include="Fonts\Segoe Fluent Icons.ttf" />
   </ItemGroup>
 
   <ItemGroup>

@@ -60,7 +60,18 @@
                         Margin="4,0"
                         Padding="8,4"
                         ToolTip="Pin window on top (hides title bar)">
-                    <TextBlock Text="Pin"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Margin="0,0,4,0">
+                            <TextBlock FontFamily="{StaticResource SegoeFluentIcons}"
+                                       Text="&#xE841;"
+                                       FontSize="16"
+                                       Foreground="{DynamicResource AccentBrush}"/>
+                            <TextBlock FontFamily="{StaticResource SegoeFluentIcons}"
+                                       Text="&#xE718;"
+                                       FontSize="16"/>
+                        </Grid>
+                        <TextBlock Text="Pin" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
             </StackPanel>
         </Grid>
@@ -128,7 +139,6 @@
 
         <Button x:Name="UnpinButton"
                 Grid.Row="1"
-                Content="Unpin"
                 Command="{Binding TogglePinCommand}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
@@ -136,7 +146,20 @@
                 Padding="12,6"
                 Opacity="0.7"
                 ToolTip="Unpin window"
-                Visibility="{Binding IsPinned, Converter={StaticResource BoolToVis}}"/>
+                Visibility="{Binding IsPinned, Converter={StaticResource BoolToVis}}">
+            <StackPanel Orientation="Horizontal">
+                <Grid Margin="0,0,4,0">
+                    <TextBlock FontFamily="{StaticResource SegoeFluentIcons}"
+                               Text="&#xE842;"
+                               FontSize="16"
+                               Foreground="{DynamicResource AccentBrush}"/>
+                    <TextBlock FontFamily="{StaticResource SegoeFluentIcons}"
+                               Text="&#xE77A;"
+                               FontSize="16"/>
+                </Grid>
+                <TextBlock Text="Unpin" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
 
         <TextBlock x:Name="DropHintText"
                    Grid.Row="1"

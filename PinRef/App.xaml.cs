@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using PinRef.Services;
@@ -10,6 +11,9 @@ public partial class App : Application
 	protected override void OnStartup(StartupEventArgs e)
 	{
 		base.OnStartup(e);
+
+		Resources["AccentBrush"] = SystemParameters.WindowGlassBrush;
+		SystemParameters.StaticPropertyChanged += OnSystemParametersChanged;
 
 		var mainWindow = new MainWindow();
 		mainWindow.Show();
@@ -24,6 +28,14 @@ public partial class App : Application
 				viewModel.AddImageCommand.Execute((arg, position));
 				position = new Point(position.X + 20, position.Y + 20);
 			}
+		}
+	}
+
+	private void OnSystemParametersChanged(object? sender, PropertyChangedEventArgs e)
+	{
+		if (e.PropertyName == nameof(SystemParameters.WindowGlassBrush))
+		{
+			Resources["AccentBrush"] = SystemParameters.WindowGlassBrush;
 		}
 	}
 }
