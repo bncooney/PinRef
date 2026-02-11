@@ -149,7 +149,7 @@ public static class PinRefSession
             $"Searched in:\n  {string.Join("\n  ", candidates)}");
     }
 
-    private static string FindSolutionDirectory()
+    internal static string FindSolutionDirectory()
     {
         var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
         while (dir is not null)
