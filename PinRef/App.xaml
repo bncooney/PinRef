@@ -6,7 +6,6 @@
     <Application.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVis"/>
 
-        <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/Fonts/#Segoe Fluent Icons</FontFamily>
         <SolidColorBrush x:Key="AccentBrush"/>
 
         <Style x:Key="ResizeHandleStyle" TargetType="Thumb" BasedOn="{StaticResource {x:Type Thumb}}">

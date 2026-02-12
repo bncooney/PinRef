@@ -17,6 +17,10 @@
         KeyDown="OnKeyDown"
         Loaded="OnLoaded">
 
+    <Window.Resources>
+        <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/Fonts/#Segoe Fluent Icons</FontFamily>
+    </Window.Resources>
+
     <Window.InputBindings>
         <KeyBinding Key="Delete" Command="{Binding RemoveSelectedImageCommand}"/>
         <KeyBinding Key="Escape" Command="{Binding DeselectAllCommand}"/>
