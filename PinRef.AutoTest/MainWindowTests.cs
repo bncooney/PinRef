@@ -56,7 +56,7 @@ public class MainWindowTests
     [TestMethod]
     public void Toolbar_ResetButton_IsDisplayed()
     {
-        var resetButton = Driver.FindElementByAccessibilityId("ResetZoomButton");
+        var resetButton = Driver.FindElementByAccessibilityId("ResetCanvasButton");
         Assert.IsNotNull(resetButton);
         Assert.IsTrue(resetButton.Displayed);
     }
@@ -125,13 +125,13 @@ public class MainWindowTests
     }
 
     // ------------------------------------------------------------------
-    //  Reset zoom
+    //  Reset canvas
     // ------------------------------------------------------------------
 
     [TestMethod]
-    public void ResetZoom_ViaResetButton_ResetsTo100Percent()
+    public void ResetCanvas_ViaResetButton_ResetsZoomTo100Percent()
     {
-        var resetButton = Driver.FindElementByAccessibilityId("ResetZoomButton");
+        var resetButton = Driver.FindElementByAccessibilityId("ResetCanvasButton");
         ActivateButton(resetButton);
 
         var zoomDisplay = Driver.FindElementByAccessibilityId("ZoomDisplay");

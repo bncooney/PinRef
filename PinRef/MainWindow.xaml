@@ -24,7 +24,7 @@
     <Window.InputBindings>
         <KeyBinding Key="Delete" Command="{Binding RemoveSelectedImageCommand}"/>
         <KeyBinding Key="Escape" Command="{Binding DeselectAllCommand}"/>
-        <KeyBinding Key="D0" Modifiers="Control" Command="{Binding ResetZoomCommand}"/>
+        <KeyBinding Key="D0" Modifiers="Control" Command="{Binding ResetCanvasCommand}"/>
     </Window.InputBindings>
 
     <Grid>
@@ -53,9 +53,9 @@
                     <Run Text="{Binding ZoomScale, StringFormat=P0, Mode=OneWay}"/>
                 </TextBlock>
 
-                <Button x:Name="ResetZoomButton"
+                <Button x:Name="ResetCanvasButton"
                         Content="Reset"
-                        Command="{Binding ResetZoomCommand}"
+                        Command="{Binding ResetCanvasCommand}"
                         Margin="4,0"
                         Padding="8,4"/>
 

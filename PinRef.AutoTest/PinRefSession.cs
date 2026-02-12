@@ -129,7 +129,8 @@ public static class PinRefSession
     {
         var solutionDir = FindSolutionDirectory();
 
-        // Try common build output paths in order of likelihood.
+        // The PinRef project is built automatically via ProjectReference in the test csproj.
+        // Locate the exe from known output paths.
         string[] candidates =
         [
             Path.Combine(solutionDir, "PinRef", "bin", "Debug", "net10.0-windows", "PinRef.exe"),
@@ -138,13 +139,13 @@ public static class PinRefSession
             Path.Combine(solutionDir, "PinRef", "bin", "x64", "Release", "net10.0-windows", "PinRef.exe"),
         ];
 
-        foreach (var candidate in candidates)
-        {
-            if (File.Exists(candidate))
-                return candidate;
-        }
+        // Return the most recently written exe to avoid stale binaries.
+        var newest = candidates
+            .Where(File.Exists)
+            .OrderByDescending(p => new FileInfo(p).LastWriteTimeUtc)
+            .FirstOrDefault();
 
-        throw new FileNotFoundException(
+        return newest ?? throw new FileNotFoundException(
             "PinRef.exe not found. Build the PinRef project first.\n" +
             $"Searched in:\n  {string.Join("\n  ", candidates)}");
     }

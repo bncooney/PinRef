@@ -229,16 +229,11 @@ public partial class MainViewModel : ObservableObject, IDisposable
 	}
 
 	[RelayCommand]
-	private void ClearCanvas()
+	private void ResetCanvas()
 	{
 		Images.Clear();
 		SelectedImage = null;
 		_nextZIndex = 0;
-	}
-
-	[RelayCommand]
-	private void ResetZoom()
-	{
 		ZoomScale = 1.0;
 		PanOffsetX = 0;
 		PanOffsetY = 0;

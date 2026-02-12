@@ -12,6 +12,13 @@
     <PackageReference Include="MSTest" Version="4.0.1" />
   </ItemGroup>
 
+  <!-- Build the app before tests run, but don't reference its output (UI tests launch it as a process). -->
+  <ItemGroup>
+    <ProjectReference Include="..\PinRef\PinRef.csproj"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true" />
+  </ItemGroup>
+
   <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
